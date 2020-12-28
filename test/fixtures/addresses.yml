@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: MyText
+  lat: 1.5
+  long: 1.5
+  eircode: MyString
+
+two:
+  address: MyText
+  lat: 1.5
+  long: 1.5
+  eircode: MyString
