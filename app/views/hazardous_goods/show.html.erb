@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @hazardous_good.name %>
+</p>
+
+<p>
+  <strong>Un number:</strong>
+  <%= @hazardous_good.un_number %>
+</p>
+
+<p>
+  <strong>Primary class:</strong>
+  <%= @hazardous_good.primary_class %>
+</p>
+
+<p>
+  <strong>Secondary class:</strong>
+  <%= @hazardous_good.secondary_class %>
+</p>
+
+<p>
+  <strong>Packing group:</strong>
+  <%= @hazardous_good.packing_group %>
+</p>
+
+<p>
+  <strong>Tunnel code:</strong>
+  <%= @hazardous_good.tunnel_code %>
+</p>
+
+<%= link_to 'Edit', edit_hazardous_good_path(@hazardous_good) %> |
+<%= link_to 'Back', hazardous_goods_path %>

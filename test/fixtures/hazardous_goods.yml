@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  un_number: 1
+  primary_class: MyString
+  secondary_class: MyString
+  packing_group: MyString
+  tunnel_code: MyString
+
+two:
+  name: MyString
+  un_number: 1
+  primary_class: MyString
+  secondary_class: MyString
+  packing_group: MyString
+  tunnel_code: MyString

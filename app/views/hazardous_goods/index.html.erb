@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Hazardous Goods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Un number</th>
+      <th>Primary class</th>
+      <th>Secondary class</th>
+      <th>Packing group</th>
+      <th>Tunnel code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hazardous_goods.each do |hazardous_good| %>
+      <tr>
+        <td><%= hazardous_good.name %></td>
+        <td><%= hazardous_good.un_number %></td>
+        <td><%= hazardous_good.primary_class %></td>
+        <td><%= hazardous_good.secondary_class %></td>
+        <td><%= hazardous_good.packing_group %></td>
+        <td><%= hazardous_good.tunnel_code %></td>
+        <td><%= link_to 'Show', hazardous_good %></td>
+        <td><%= link_to 'Edit', edit_hazardous_good_path(hazardous_good) %></td>
+        <td><%= link_to 'Destroy', hazardous_good, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hazardous Good', new_hazardous_good_path %>

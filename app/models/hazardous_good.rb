@@ -1,0 +1,2 @@
+class HazardousGood < ApplicationRecord
+end

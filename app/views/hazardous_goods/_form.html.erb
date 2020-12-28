@@ -1,0 +1,47 @@
+<%= form_with(model: hazardous_good, local: true) do |form| %>
+  <% if hazardous_good.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hazardous_good.errors.count, "error") %> prohibited this hazardous_good from being saved:</h2>
+
+      <ul>
+      <% hazardous_good.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :un_number %>
+    <%= form.number_field :un_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :primary_class %>
+    <%= form.text_field :primary_class %>
+  </div>
+
+  <div class="field">
+    <%= form.label :secondary_class %>
+    <%= form.text_field :secondary_class %>
+  </div>
+
+  <div class="field">
+    <%= form.label :packing_group %>
+    <%= form.text_field :packing_group %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tunnel_code %>
+    <%= form.text_field :tunnel_code %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
