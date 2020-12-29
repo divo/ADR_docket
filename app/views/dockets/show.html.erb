@@ -1,44 +1,265 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Equipment no:</strong>
-  <%= @docket.equipment_no %>
-</p>
+<table class="docket" style="border-collapse: collapse;">
+  <tbody>
+    <tr>
+      <td style="width: 100%;">
+        <table style="height: 54px; width: 100%; border-collapse: collapse; border-style: none;">
+          <tbody>
+            <tr>
+              <td>
+                <h1>Trim Transport Ltd</h1>
+              </td>
+            </tr>
+            <tr>
+              <td>Container handling specialists ▆ Haulage &amp; Warehousing</td>
+            </tr>
+            <tr>
+              <td>Tolka Quay<br />Dublin 1<br />Ireland<br />Tel: (353 1) 8741661<br />Fax: (353 1) 8741664<br />Email: trimtransportltd@gmail.com</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td style="width: 100%;">
+        <table style="width: 100%;">
+          <tbody>
+            <tr>
+              <td style="width: 33.3333%;">
+                <table style="height: 36px; width: 100%; border-collapse: collapse; border-style: solid;" border="1">
+                  <tbody>
+                    <tr>
+                      <td><small>Equipment no</small></td>
+                    </tr>
+                    <tr class="data">
+                      <td><%= @docket&.equipment_no %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td style="width: 33.3333%;">
+                <table style="height: 36px; width: 100%; border-collapse: collapse; border-style: solid;" border="1">
+                  <tbody>
+                    <tr>
+                      <td><small>Customer reference</small></td>
+                    </tr>
+                    <tr class="data">
+                      <td><%= @docket&.customer_reference_no %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td style="width: 33.3333%;">
+                <table style="height: 36px; width: 100%; border-collapse: collapse; border-style: solid;" border="1">
+                  <tbody>
+                    <tr>
+                      <td><small>Date</small></td>
+                    </tr>
+                    <tr class="data">
+                      <td><%= Time.now.strftime("%d-%m-%Y") %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table style="border-collapse: collapse; width: 100%;">
+          <tbody>
+            <tr>
+              <td style="width: 25%;"> 
+                <table style="height: 36px; width: 100%; border-collapse: collapse; border-style: solid;" border="1">
+                  <tbody>
+                    <tr>
+                      <td><small>Berth</small></td>
+                    </tr>
+                    <tr class="data">
+                      <td><%= "TODO" %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td style="width: 25%;"> 
+                <table style="height: 36px; width: 100%; border-collapse: collapse; border-style: solid;" border="1">
+                  <tbody>
+                    <tr>
+                      <td><small>Size</small></td>
+                    </tr>
+                    <tr class="data">
+                      <td><%= "TODO" %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td style="width: 25%;">
+                <table style="height: 36px; width: 100%; border-collapse: collapse; border-style: solid;" border="1">
+                  <tbody>
+                    <tr>
+                      <td><small>Seal number</small></td>
+                    </tr>
+                    <tr class="data">
+                      <td><%= @docket&.seal_no %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td style="width: 25%;">
+                <table style="height: 36px; width: 100%; border-collapse: collapse; border-style: solid;" border="1">
+                  <tbody>
+                    <tr>
+                      <td><small>Weight</small></td>
+                    </tr>
+                    <tr class="data">
+                      <td><%= "TODO" %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table style="border-collapse: collapse; width: 100%;">
+          <tbody>
+            <tr>
+              <td style="width: 50%;">
+                <table style="height: 36px; width: 100%; border-collapse: collapse; border-style: solid;" border="1">
+                  <tbody>
+                    <tr>
+                      <td><small>Collect from</small></td>
+                    </tr>
+                    <tr class="address">
+                      <td><%= @docket&.collect_from&.address %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td style="width: 50%;">
+                <table style="height: 36px; width: 100%; border-collapse: collapse; border-style: solid;" border="1">
+                  <tbody>
+                    <tr>
+                      <td><small>Deliver to</small></td>
+                    </tr>
+                    <tr class="address">
+                      <td><%= @docket&.deliver_to&.address %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table style="border-collapse: collapse; width: 100%;">
+          <tbody>
+            <tr>
+              <td style="width: 100%;"> 
+                <table style="height: 36px; width: 100%; border-collapse: collapse; border-style: solid;" border="1">
+                  <tbody>
+                    <tr>
+                      <td><small>Description of goods</small></td>
+                    </tr>
+                    <tr class="string">
+                      <td><%= @docket.description %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table style="border-collapse: collapse; width: 100%;">
+          <tbody>
+            <tr>
+              <td style="width: 100%;">
+                <table style="height: 36px; width: 100%; border-collapse: collapse; border-style: solid;" border="1">
+                  <tbody>
+                    <tr>
+                      <td><small>Return empty container</small></td>
+                    </tr>
+                    <tr class="string">
+                      <td><%= @docket.return_empty %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table style="border-collapse: collapse; width: 100%;">
+          <tbody>
+            <tr>
+              <td style="width: 100%;">
+                <table style="height: 36px; width: 100%; border-collapse: collapse; border-style: solid;" border="1">
+                  <tbody>
+                    <tr>
+                      <td><small>Hazardous Goods</small></td>
+                    </tr>
+                    <tr class="string">
+                      <td><%= @docket&.hazardous_good || "N/A" %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table style="border-collapse: collapse; width: 100%;" border="1">
+          <tbody>
+            <tr>
+              <td style="width: 50%;">
+                <table style="border-collapse: collapse; width: 100%;" >
+                  <tbody>
+                    <tr>
+                      <td style="width: 50%;"><small>To Consignee</small></td>
+                      <td style="width: 50%;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%;"><small>Please receive the specified goods</small></td>
+                      <td style="width: 50%;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%;">
+                        <p><small>The above goods have been received n good order and condition</small></p>
+                      </td>
+                      <td style="width: 50%;">
+                        <p>&nbsp;</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%;"><small>For and on behalf of Consignee</small></td>
+                      <td style="width: 50%;">&nbsp;</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td style="width: 50%;">
+                <table class="sign" style="border-collapse: collapse; width: 100%; height: 100%">
+                  <tbody>
+                    <tr >
+                      <td style="width: 33%; ">Signature:</td>
+                      <td class="signature" style="">_________________________</td>
+                    </tr>
+                    <tr >
+                      <td style="width: 33%; ">Print Name:</td>
+                      <td class="signature" style="">_________________________</td>
+                    </tr>
+                    <tr >
+                      <td style="width: 33%; ">Position:</td>
+                      <td class="signature" style="">_________________________</td>
+                    </tr>
+                    <tr>
+                      <td style="">Date:</td>
+                      <td class="signature" style="">_________________________</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-<p>
-  <strong>Customer reference no:</strong>
-  <%= @docket.customer_reference_no %>
-</p>
-
-<p>
-  <strong>Seal no:</strong>
-  <%= @docket.seal_no %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @docket.description %>
-</p>
-
-<p>
-  <strong>Return empty:</strong>
-  <%= @docket.return_empty %>
-</p>
-
-<p>
-  <strong>Deliver to:</strong>
-  <%= @docket.deliver_to ? (render partial: "address", locals: { address: @docket.deliver_to }) : "No delivery address" %>
-</p>
-
-<p>
-  <strong>Collect from:</strong>
-  <%= @docket.collect_from ? (render partial: "address", locals: { address: @docket.collect_from }) : "No collection address" %>
-</p>
-
-<p>
-  <strong>Hazardous good:</strong>
-  <%= @docket.hazardous_good ? (render partial: "hazardous_good", locals: { hazardous_good: @docket.hazardous_good }) : "No hazardous" %>
-</p>
-
-<%= link_to 'Edit', edit_docket_path(@docket) %> |
-<%= link_to 'Back', dockets_path %>
+</table>
+      </td>
+    </tr>
+  </tbody>
+  </table>
