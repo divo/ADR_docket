@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dockets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Equipment no</th>
+      <th>Customer reference no</th>
+      <th>Seal no</th>
+      <th>Description</th>
+      <th>Return empty</th>
+      <th>Deliver to</th>
+      <th>Collect from</th>
+      <th>Hazardous good</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dockets.each do |docket| %>
+      <tr>
+        <td><%= docket.equipment_no %></td>
+        <td><%= docket.customer_reference_no %></td>
+        <td><%= docket.seal_no %></td>
+        <td><%= docket.description %></td>
+        <td><%= docket.return_empty %></td>
+        <td><%= docket.deliver_to %></td>
+        <td><%= docket.collect_from %></td>
+        <td><%= docket.hazardous_good %></td>
+        <td><%= link_to 'Show', docket %></td>
+        <td><%= link_to 'Edit', edit_docket_path(docket) %></td>
+        <td><%= link_to 'Destroy', docket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Docket', new_docket_path %>

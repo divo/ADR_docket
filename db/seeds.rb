@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Address.create(address: "123 Fake St")
+HazardousGood.create(name: 'Hazardous', un_number: 123, primary_class: "1", secondary_class: "2", packing_group: "II", tunnel_code: "123")

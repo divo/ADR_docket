@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_28_230953) do
+ActiveRecord::Schema.define(version: 2020_12_29_005650) do
 
   create_table "addresses", force: :cascade do |t|
     t.text "address"
@@ -19,6 +19,22 @@ ActiveRecord::Schema.define(version: 2020_12_28_230953) do
     t.string "eircode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "dockets", force: :cascade do |t|
+    t.string "equipment_no"
+    t.string "customer_reference_no"
+    t.string "seal_no"
+    t.text "description"
+    t.boolean "return_empty"
+    t.integer "deliver_to_id"
+    t.integer "collect_from_id"
+    t.integer "hazardous_good_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collect_from_id"], name: "index_dockets_on_collect_from_id"
+    t.index ["deliver_to_id"], name: "index_dockets_on_deliver_to_id"
+    t.index ["hazardous_good_id"], name: "index_dockets_on_hazardous_good_id"
   end
 
   create_table "hazardous_goods", force: :cascade do |t|

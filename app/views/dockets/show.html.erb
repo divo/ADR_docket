@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Equipment no:</strong>
+  <%= @docket.equipment_no %>
+</p>
+
+<p>
+  <strong>Customer reference no:</strong>
+  <%= @docket.customer_reference_no %>
+</p>
+
+<p>
+  <strong>Seal no:</strong>
+  <%= @docket.seal_no %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @docket.description %>
+</p>
+
+<p>
+  <strong>Return empty:</strong>
+  <%= @docket.return_empty %>
+</p>
+
+<p>
+  <strong>Deliver to:</strong>
+  <%= @docket.deliver_to %>
+</p>
+
+<p>
+  <strong>Collect from:</strong>
+  <%= @docket.collect_from %>
+</p>
+
+<p>
+  <strong>Hazardous good:</strong>
+  <%= @docket.hazardous_good %>
+</p>
+
+<%= link_to 'Edit', edit_docket_path(@docket) %> |
+<%= link_to 'Back', dockets_path %>

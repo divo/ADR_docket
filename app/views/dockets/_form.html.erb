@@ -1,0 +1,57 @@
+<%= form_with(model: docket, local: true) do |form| %>
+  <% if docket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(docket.errors.count, "error") %> prohibited this docket from being saved:</h2>
+
+      <ul>
+      <% docket.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :equipment_no %>
+    <%= form.text_field :equipment_no %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_reference_no %>
+    <%= form.text_field :customer_reference_no %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seal_no %>
+    <%= form.text_field :seal_no %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :return_empty %>
+    <%= form.check_box :return_empty %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deliver_to_id %>
+    <%= form.text_field :deliver_to_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :collect_from_id %>
+    <%= form.text_field :collect_from_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hazardous_good_id %>
+    <%= form.text_field :hazardous_good_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
