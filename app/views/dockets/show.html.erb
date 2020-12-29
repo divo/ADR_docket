@@ -27,17 +27,17 @@
 
 <p>
   <strong>Deliver to:</strong>
-  <%= @docket.deliver_to %>
+  <%= @docket.deliver_to ? (render partial: "address", locals: { address: @docket.deliver_to }) : "No delivery address" %>
 </p>
 
 <p>
   <strong>Collect from:</strong>
-  <%= @docket.collect_from %>
+  <%= @docket.collect_from ? (render partial: "address", locals: { address: @docket.collect_from }) : "No collection address" %>
 </p>
 
 <p>
   <strong>Hazardous good:</strong>
-  <%= @docket.hazardous_good %>
+  <%= @docket.hazardous_good ? (render partial: "hazardous_good", locals: { hazardous_good: @docket.hazardous_good }) : "No hazardous" %>
 </p>
 
 <%= link_to 'Edit', edit_docket_path(@docket) %> |
