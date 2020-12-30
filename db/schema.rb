@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_29_005650) do
+ActiveRecord::Schema.define(version: 2020_12_30_002459) do
 
   create_table "addresses", force: :cascade do |t|
     t.text "address"
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(version: 2020_12_29_005650) do
     t.integer "hazardous_good_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "berth"
+    t.string "size"
+    t.string "weight"
     t.index ["collect_from_id"], name: "index_dockets_on_collect_from_id"
     t.index ["deliver_to_id"], name: "index_dockets_on_deliver_to_id"
     t.index ["hazardous_good_id"], name: "index_dockets_on_hazardous_good_id"
