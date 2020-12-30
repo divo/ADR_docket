@@ -5,6 +5,7 @@
 <table class="table table-striped docket container mt-3">
   <thead>
     <tr>
+      <th>Date</th>
       <th>Equipment no</th>
       <th>Customer reference no</th>
       <th>Seal no</th>
@@ -18,8 +19,9 @@
   </thead>
 
   <tbody>
-    <% @dockets.each do |docket| %>
+    <% @dockets.reverse.each do |docket| %>
       <tr>
+        <td><%= docket.created_at.localtime.strftime("%d-%m-%Y %H:%M")%></td>
         <td><%= docket.equipment_no %></td>
         <td><%= docket.customer_reference_no %></td>
         <td><%= docket.seal_no %></td>
