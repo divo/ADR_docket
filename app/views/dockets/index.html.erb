@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Dockets</h1>
+<h1 class="navbar navbar-expand-lg navbar-light bg-light container mt-3">Dockets</h1>
 
-<table class="table table-striped">
+<table class="table table-striped docket container mt-3">
   <thead>
     <tr>
       <th>Equipment no</th>
@@ -28,9 +28,7 @@
         <td><%= docket.deliver_to ? (render partial: "address", locals: { address: docket.deliver_to }) : "No delivery address" %></td>
         <td><%= docket.collect_from ? (render partial: "address", locals: { address: docket.collect_from }) : "No collection address" %></td>
         <td><%= docket.hazardous_good ? docket.hazardous_good : "No hazardous" %></td>
-        <td><%= link_to 'Show', docket %></td>
-        <td><%= link_to 'Edit', edit_docket_path(docket) %></td>
-        <td><%= link_to 'Destroy', docket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Open', docket, class: "button btn btn-primary"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,4 +36,6 @@
 
 <br>
 
-<%= link_to 'New Docket', new_docket_path %>
+<div class="navbar navbar-expand-lg navbar-light bg-light container mt-3">
+  <%= link_to 'New Docket', new_docket_path, class: "button btn btn-primary" %>
+</div>

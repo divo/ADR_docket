@@ -1,8 +1,11 @@
 // Place all the styles related to the Dockets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@media print {
+  size: 7in 9.25in;
+  margin: 27mm 16mm 27mm 16mm;
+}
 .docket {
-  margin: 0px;
   margin-left: auto;
   margin-right: auto;
   table, th, td {
@@ -13,25 +16,26 @@
     td {
       border: 1px solid black;
       text-align: right;
+      padding: 10px;
     }
   }
   .address {
     td {
       border: 1px solid black;
       vertical-align: text-top;
-      height: 100px;
+      height: 150px;
       padding: 10px;
     }
   }
   .string {
     td {
       border: 1px solid black;
-      padding: 5px;
+      padding: 20px;
     }
   }
   .sign {
     td {
-      padding: 10px;
+      padding: 20px;
     }
   }
   .signature {
