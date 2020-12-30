@@ -31,6 +31,7 @@
         <td><%= docket.collect_from ? (render partial: "address", locals: { address: docket.collect_from }) : "No collection address" %></td>
         <td><%= docket.hazardous_good ? docket.hazardous_good : "No hazardous" %></td>
         <td><%= link_to 'Open', docket, class: "button btn btn-primary"%></td>
+        <td><%= link_to 'Delete', docket, class: "button btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
