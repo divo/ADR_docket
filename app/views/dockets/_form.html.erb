@@ -4,69 +4,91 @@
       <h2><%= pluralize(docket.errors.count, "error") %> prohibited this docket from being saved:</h2>
 
       <ul>
-      <% docket.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% docket.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :equipment_no %>
-    <%= form.text_field :equipment_no %>
+  <div class="form-group">
+    <%= form.label :equipment_no, class: "col-md-6 control-label" %>
+    <div class="col-md-8">
+      <%= form.text_field :equipment_no, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :customer_reference_no %>
-    <%= form.text_field :customer_reference_no %>
+  <div class="form-group">
+    <%= form.label :customer_reference_no, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= form.text_field :customer_reference_no, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :berth %>
-    <%= form.text_field :berth %>
+  <div class="form-group">
+    <%= form.label :berth, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= form.text_field :berth, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :size %>
-    <%= form.text_field :size %>
+  <div class="form-group">
+    <%= form.label :size, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= form.text_field :size, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :weight %>
-    <%= form.text_field :weight %>
+  <div class="form-group">
+    <%= form.label :weight, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= form.text_field :weight, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :seal_no %>
-    <%= form.text_field :seal_no %>
+  <div class="form-group">
+    <%= form.label :seal_no, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= form.text_field :seal_no, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="form-group">
+    <%= form.label :description, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= form.text_area :description, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :return_empty %>
-    <%= form.text_area :return_empty %>
+  <div class="form-group">
+    <%= form.label :return_empty, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= form.text_area :return_empty, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :deliver_to_id %>
-    <%= form.text_field :deliver_to_id %>
+  <div class="form-group">
+    <%= form.label :deliver_to_id, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= form.text_field :deliver_to_id, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :collect_from_id %>
-    <%= form.text_field :collect_from_id %>
+  <div class="form-group">
+    <%= form.label :collect_from_id, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= form.text_field :collect_from_id, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :hazardous_good_id %>
-    <%= form.text_field :hazardous_good_id %>
+  <div class="form-group">
+    <%= form.label :hazardous_good_id, class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= form.text_field :hazardous_good_id, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="actions">
+  <div class="actions btn">
     <%= form.submit %>
   </div>
 <% end %>
