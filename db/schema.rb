@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_12_30_002459) do
     t.string "customer_reference_no"
     t.string "seal_no"
     t.text "description"
-    t.boolean "return_empty"
+    t.text "return_empty"
     t.integer "deliver_to_id"
     t.integer "collect_from_id"
     t.integer "hazardous_good_id"
