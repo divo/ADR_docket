@@ -17,3 +17,8 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require bootstrap-select
+
+$(document).on('turbolinks:load', function() {
+   $(window).trigger('load.bs.select.data-api');
+});

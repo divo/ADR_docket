@@ -15,6 +15,7 @@ class DocketsController < ApplicationController
   # GET /dockets/new
   def new
     @docket = Docket.new
+    @addresses = Address.all
   end
 
   # GET /dockets/1/edit

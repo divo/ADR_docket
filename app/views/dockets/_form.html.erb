@@ -69,15 +69,17 @@
 
   <div class="form-group">
     <%= form.label :deliver_to_id, class: "col-md-4 control-label" %>
-    <div class="col-md-8">
-      <%= form.text_field :deliver_to_id, class: 'form-control' %>
+    <div class="col-md-8 from-control">
+      <%= form.select :deliver_to_id, @addresses.all.collect { |a| [a.address, a.id] }, {},
+        { class: 'selectpicker', title: "New Address", 'data-live-search': true } %>
     </div>
   </div>
 
   <div class="form-group">
     <%= form.label :collect_from_id, class: "col-md-4 control-label" %>
-    <div class="col-md-8">
-      <%= form.text_field :collect_from_id, class: 'form-control' %>
+    <div class="col-md-8 from-control">
+      <%= form.select :collect_from_id, @addresses.all.collect { |a| [a.address, a.id] }, {},
+        { class: 'selectpicker', title: "New Address", 'data-live-search': true } %>
     </div>
   </div>
 
