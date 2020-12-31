@@ -25,6 +25,9 @@ class DocketsController < ApplicationController
   # POST /dockets
   # POST /dockets.json
   def create
+    build_new_address('deliver')
+    build_new_address('collect')
+
     @docket = Docket.new(docket_params)
 
     respond_to do |format|
@@ -35,6 +38,13 @@ class DocketsController < ApplicationController
         format.html { render :new }
         format.json { render json: @docket.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def build_new_address(key)
+    unless address_params["new_#{key}_address"].empty?
+      address = Address.create(address: address_params["new_#{key}_address"])
+      params[:docket]["#{key}_to_id"] = address.id
     end
   end
 
@@ -63,13 +73,21 @@ class DocketsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_docket
-      @docket = Docket.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def docket_params
-      params.require(:docket).permit(:weight, :berth, :size, :equipment_no, :customer_reference_no, :seal_no, :description, :return_empty, :deliver_to_id, :collect_from_id, :hazardous_good_id)
-    end
+    # Use callbacks to share common setup or constraints between actions.
+  def set_docket
+    @docket = Docket.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def docket_params
+    params.require(:docket).permit(:weight, :berth, :size, :equipment_no,
+                                   :customer_reference_no, :seal_no, :description,
+                                   :return_empty, :deliver_to_id, :collect_from_id,
+                                   :hazardous_good_id)
+  end
+
+  def address_params
+    params.require(:docket).permit(:new_deliver_address, :new_collect_address)
+  end
 end

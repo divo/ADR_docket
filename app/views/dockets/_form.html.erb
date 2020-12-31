@@ -67,21 +67,53 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <%= form.label :deliver_to_id, class: "col-md-4 control-label" %>
-    <div class="col-md-8 from-control">
-      <%= form.select :deliver_to_id, @addresses.all.collect { |a| [a.address, a.id] }, {},
-        { class: 'selectpicker', title: "New Address", 'data-live-search': true } %>
-    </div>
-  </div>
+  <table class="col-md-7", style="height: 200px">
+    <tbody>
+      <tr>
+        <td>
+          <div class="form-group">
+            <%= form.label :deliver_to_id, class: "control-label" %>
+            <div class="from-control">
+              <%= form.select :deliver_to_id, @addresses.all.collect { |a| [a.address, a.id] }, {},
+                { class: 'selectpicker', title: "New Address", 'data-live-search': true } %>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="form-group">
+            <%= form.label :new_address, class: "control-label" %>
+            <div>
+              <%= form.text_area :new_deliver_address, class: 'form-control address' %>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-  <div class="form-group">
-    <%= form.label :collect_from_id, class: "col-md-4 control-label" %>
-    <div class="col-md-8 from-control">
-      <%= form.select :collect_from_id, @addresses.all.collect { |a| [a.address, a.id] }, {},
-        { class: 'selectpicker', title: "New Address", 'data-live-search': true } %>
-    </div>
-  </div>
+  <table class="col-md-7", style="height: 200px">
+    <tbody>
+      <tr>
+        <td>
+          <div class="form-group">
+            <%= form.label :collect_from_id, class: "control-label" %>
+            <div class="from-control">
+              <%= form.select :collect_from_id, @addresses.all.collect { |a| [a.address, a.id] }, {},
+                { class: 'selectpicker', title: "New Address", 'data-live-search': true } %>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="form-group">
+            <%= form.label :new_address, class: "control-label" %>
+            <div>
+              <%= form.text_area :new_collect_address, class: 'form-control address' %>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="form-group">
     <%= form.label :hazardous_good_id, class: "col-md-4 control-label" %>
