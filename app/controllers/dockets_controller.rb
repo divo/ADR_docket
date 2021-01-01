@@ -27,8 +27,8 @@ class DocketsController < ApplicationController
   # POST /dockets
   # POST /dockets.json
   def create
-    build_new_address('deliver')
-    build_new_address('collect')
+    build_new_address('deliver_to')
+    build_new_address('collect_from')
     build_hazardous_good
 
     @docket = Docket.new(docket_params)
@@ -45,14 +45,14 @@ class DocketsController < ApplicationController
   end
 
   def build_new_address(key)
-    return if address_params["new_#{key}_address"].empty?
+    return if address_params["new_#{key}_address"].empty? || docket_params["#{key}_id"].present?
 
     address = Address.create(address: address_params["new_#{key}_address"])
-    params[:docket]["#{key}_to_id"] = address.id
+    params[:docket]["#{key}_id"] = address.id
   end
 
   def build_hazardous_good
-    return if hazardous_good_params.values.all?(&:empty?)
+    return if hazardous_good_params.values.all?(&:empty?) || docket_params[:hazardous_good_id].present?
 
     hazardous_good = HazardousGood.create(hazardous_good_params)
     params[:docket][:hazardous_good_id] = hazardous_good.id
@@ -84,7 +84,6 @@ class DocketsController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
   def set_docket
     @docket = Docket.find(params[:id])
   end
@@ -98,7 +97,7 @@ class DocketsController < ApplicationController
   end
 
   def address_params
-    params.require(:docket).permit(:new_deliver_address, :new_collect_address)
+    params.require(:docket).permit(:new_deliver_to_address, :new_collect_from_address)
   end
 
   def hazardous_good_params
