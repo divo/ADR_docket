@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'dockets#index'
+
   resources :dockets
   resources :addresses
   resources :hazardous_goods
