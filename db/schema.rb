@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_12_30_002459) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "addresses", force: :cascade do |t|
     t.text "address"
     t.float "lat"
@@ -27,9 +30,9 @@ ActiveRecord::Schema.define(version: 2020_12_30_002459) do
     t.string "seal_no"
     t.text "description"
     t.text "return_empty"
-    t.integer "deliver_to_id"
-    t.integer "collect_from_id"
-    t.integer "hazardous_good_id"
+    t.bigint "deliver_to_id"
+    t.bigint "collect_from_id"
+    t.bigint "hazardous_good_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "berth"
@@ -51,4 +54,5 @@ ActiveRecord::Schema.define(version: 2020_12_30_002459) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "dockets", "hazardous_goods"
 end
