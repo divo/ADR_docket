@@ -16,6 +16,8 @@ class DocketsController < ApplicationController
   def new
     @docket = Docket.new
     @addresses = Address.all
+    @_hazardous_good = HazardousGood.new
+    @hazardous_goods = HazardousGood.all
   end
 
   # GET /dockets/1/edit
@@ -27,6 +29,7 @@ class DocketsController < ApplicationController
   def create
     build_new_address('deliver')
     build_new_address('collect')
+    build_hazardous_good
 
     @docket = Docket.new(docket_params)
 
@@ -42,10 +45,17 @@ class DocketsController < ApplicationController
   end
 
   def build_new_address(key)
-    unless address_params["new_#{key}_address"].empty?
-      address = Address.create(address: address_params["new_#{key}_address"])
-      params[:docket]["#{key}_to_id"] = address.id
-    end
+    return if address_params["new_#{key}_address"].empty?
+
+    address = Address.create(address: address_params["new_#{key}_address"])
+    params[:docket]["#{key}_to_id"] = address.id
+  end
+
+  def build_hazardous_good
+    return if hazardous_good_params.values.all?(&:empty?)
+
+    hazardous_good = HazardousGood.create(hazardous_good_params)
+    params[:docket][:hazardous_good_id] = hazardous_good.id
   end
 
   # PATCH/PUT /dockets/1
@@ -89,5 +99,9 @@ class DocketsController < ApplicationController
 
   def address_params
     params.require(:docket).permit(:new_deliver_address, :new_collect_address)
+  end
+
+  def hazardous_good_params
+    params.require(:hazardous_good).permit(:name, :un_number, :primary_class, :secondary_class, :packing_group, :tunnel_code)
   end
 end

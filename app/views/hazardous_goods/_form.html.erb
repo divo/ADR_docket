@@ -11,37 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :un_number %>
-    <%= form.number_field :un_number %>
+    <%= form.number_field :un_number, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :primary_class %>
-    <%= form.text_field :primary_class %>
+    <%= form.text_field :primary_class, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :secondary_class %>
-    <%= form.text_field :secondary_class %>
+    <%= form.text_field :secondary_class, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :packing_group %>
-    <%= form.text_field :packing_group %>
+    <%= form.text_field :packing_group, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :tunnel_code %>
-    <%= form.text_field :tunnel_code %>
+    <%= form.text_field :tunnel_code, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <% unless embedded %>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
 <% end %>

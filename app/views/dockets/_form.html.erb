@@ -115,12 +115,25 @@
     </tbody>
   </table>
 
-  <div class="form-group">
-    <%= form.label :hazardous_good_id, class: "col-md-4 control-label" %>
-    <div class="col-md-8">
-      <%= form.text_field :hazardous_good_id, class: 'form-control' %>
-    </div>
-  </div>
+  <table class="col-md-7", style="height: 200px">
+    <tbody>
+      <tr>
+        <td>
+          <div class="form-group">
+            <%= form.label :hazardous_good_id, class: "control-label" %>
+            <div class="from-control">
+              <%= form.select :hazardous_good_id, @hazardous_goods.all.collect { |haz| [haz, haz.id] }, {},
+                { class: 'selectpicker', title: "New Hazardous Good", 'data-live-search': true } %>
+            </div>
+          </div>
+        </td>
+        <td class="docket">
+          <%= render partial: 'hazardous_goods/form', locals: { hazardous_good: @_hazardous_good, embedded: true} %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
 
   <div class="actions btn">
     <%= form.submit %>
