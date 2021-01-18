@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(version: 2020_12_30_002459) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.text "tagline"
+    t.string "phone"
+    t.string "fax"
+    t.string "email"
+    t.bigint "address_id"
+    t.bigint "dockets_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_companies_on_address_id"
+    t.index ["dockets_id"], name: "index_companies_on_dockets_id"
+  end
+
   create_table "dockets", force: :cascade do |t|
     t.string "equipment_no"
     t.string "customer_reference_no"
