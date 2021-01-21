@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_040310) do
+ActiveRecord::Schema.define(version: 2021_01_21_042132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2021_01_21_040310) do
     t.string "berth"
     t.string "size"
     t.string "weight"
+    t.bigint "account_id"
+    t.index ["account_id"], name: "index_dockets_on_account_id"
     t.index ["collect_from_id"], name: "index_dockets_on_collect_from_id"
     t.index ["deliver_to_id"], name: "index_dockets_on_deliver_to_id"
     t.index ["hazardous_good_id"], name: "index_dockets_on_hazardous_good_id"
