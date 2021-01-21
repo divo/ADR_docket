@@ -2,10 +2,18 @@
 
 one:
   name: MyString
+  tagline: MyText
+  phone: MyString
+  fax: MyString
   email: MyString
-  account: one
+  address: one
+  dockets: one
 
 two:
   name: MyString
+  tagline: MyText
+  phone: MyString
+  fax: MyString
   email: MyString
-  account: two
+  address: two
+  dockets: two
