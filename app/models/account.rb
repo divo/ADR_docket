@@ -1,4 +1,4 @@
 class Account < ApplicationRecord
-  belongs_to :address
-  belongs_to :dockets
+  has_many :address
+  has_many :dockets
 end

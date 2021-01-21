@@ -6,8 +6,6 @@ class CreateAccounts < ActiveRecord::Migration[5.2]
       t.string :phone
       t.string :fax
       t.string :email
-      t.references :address, foreign_key: true
-      t.references :dockets, foreign_key: true
 
       t.timestamps
     end
