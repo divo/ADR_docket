@@ -15,9 +15,7 @@ class DocketsController < ApplicationController
   # GET /dockets/new
   def new
     @docket = Docket.new
-    @addresses = Address.all
-    @_hazardous_good = HazardousGood.new
-    @hazardous_goods = HazardousGood.all
+    @hazardous_good = HazardousGood.new
   end
 
   # GET /dockets/1/edit
@@ -101,6 +99,6 @@ class DocketsController < ApplicationController
   end
 
   def hazardous_good_params
-    params.require(:hazardous_good).permit(:name, :un_number, :primary_class, :secondary_class, :packing_group, :tunnel_code)
+    params.require(:docket).permit(:name, :un_number, :primary_class, :secondary_class, :packing_group, :tunnel_code)
   end
 end

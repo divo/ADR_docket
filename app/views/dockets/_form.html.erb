@@ -74,7 +74,7 @@
           <div class="form-group">
             <%= form.label :deliver_to_id, class: "control-label" %>
             <div class="from-control">
-              <%= form.select :deliver_to_id, @addresses.all.collect { |a| [a.address, a.id] }, {},
+              <%= form.select :deliver_to_id, Address.all.collect { |a| [a.address, a.id] }, {},
                 { class: 'selectpicker', title: "New Address", 'data-live-search': true } %>
             </div>
           </div>
@@ -98,7 +98,7 @@
           <div class="form-group">
             <%= form.label :collect_from_id, class: "control-label" %>
             <div class="from-control">
-              <%= form.select :collect_from_id, @addresses.all.collect { |a| [a.address, a.id] }, {},
+              <%= form.select :collect_from_id, Address.all.collect { |a| [a.address, a.id] }, {},
                 { class: 'selectpicker', title: "New Address", 'data-live-search': true } %>
             </div>
           </div>
@@ -122,13 +122,13 @@
           <div class="form-group">
             <%= form.label :hazardous_good_id, class: "control-label" %>
             <div class="from-control">
-              <%= form.select :hazardous_good_id, @hazardous_goods.all.collect { |haz| [haz, haz.id] }, {},
+              <%= form.select :hazardous_good_id, HazardousGood.all.collect { |haz| [haz, haz.id] }, {},
                 { class: 'selectpicker', title: "New Hazardous Good", 'data-live-search': true } %>
             </div>
           </div>
         </td>
         <td class="docket">
-          <%= render partial: 'hazardous_goods/form', locals: { hazardous_good: @_hazardous_good, embedded: true} %>
+          <%= render partial: 'hazardous_goods/form', locals: { hazardous_good: @hazardous_good, embedded: true} %>
         </td>
       </tr>
     </tbody>
