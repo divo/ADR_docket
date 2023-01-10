@@ -20,5 +20,16 @@
 //= require bootstrap-select
 
 $(document).on('turbolinks:load', function() {
-   $(window).trigger('load.bs.select.data-api');
+  $(window).trigger('load.bs.select.data-api');
 });
+
+function printDiv(divName) {
+  var printContents = document.getElementById(divName).innerHTML;
+  var originalContents = document.body.innerHTML;
+
+  document.body.innerHTML = printContents;
+
+  window.print();
+
+  document.body.innerHTML = originalContents;
+}
