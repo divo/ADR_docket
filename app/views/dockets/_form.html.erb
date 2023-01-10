@@ -1,3 +1,4 @@
+<div class="container d-flex justify-content-center">
 <%= form_with(model: docket, local: true) do |form| %>
   <% if docket.errors.any? %>
     <div id="error_explanation">
@@ -13,61 +14,61 @@
 
   <div class="form-group">
     <%= form.label :equipment_no, class: "col-md-6 control-label" %>
-    <div class="col-md-8">
+    <div class="col-md">
       <%= form.text_field :equipment_no, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= form.label :customer_reference_no, class: "col-md-4 control-label" %>
-    <div class="col-md-8">
+    <div class="col-md">
       <%= form.text_field :customer_reference_no, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= form.label :berth, class: "col-md-4 control-label" %>
-    <div class="col-md-8">
+    <div class="col-md">
       <%= form.text_field :berth, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= form.label :size, class: "col-md-4 control-label" %>
-    <div class="col-md-8">
+    <div class="col-md">
       <%= form.text_field :size, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= form.label :weight, class: "col-md-4 control-label" %>
-    <div class="col-md-8">
+    <div class="col-md">
       <%= form.text_field :weight, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= form.label :seal_no, class: "col-md-4 control-label" %>
-    <div class="col-md-8">
+    <div class="col-md">
       <%= form.text_field :seal_no, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
     <%= form.label :description, class: "col-md-4 control-label" %>
-    <div class="col-md-8">
+    <div class="col-md">
       <%= form.text_area :description, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= form.label :return_empty, class: "col-md-4 control-label" %>
-    <div class="col-md-8">
+    <%= form.label :return_empty, class: "col-md control-label" %>
+    <div class="col-md">
       <%= form.text_area :return_empty, class: 'form-control' %>
     </div>
   </div>
 
-  <table class="col-md-7", style="height: 200px">
+  <table class="col-md", style="height: 15rem; width: 100%">
     <tbody>
       <tr>
         <td>
@@ -91,7 +92,7 @@
     </tbody>
   </table>
 
-  <table class="col-md-7", style="height: 200px">
+  <table class="col-md", style="height: 15rem; width: 100%">
     <tbody>
       <tr>
         <td>
@@ -115,7 +116,7 @@
     </tbody>
   </table>
 
-  <table class="col-md-7", style="height: 200px">
+  <table class="col-md", style="height: 200px">
     <tbody>
       <tr>
         <td>
@@ -136,6 +137,7 @@
 
 
   <div class="actions btn">
-    <%= form.submit %>
+    <%= form.submit 'Create', class: "button btn btn-primary" %>
   </div>
 <% end %>
+</div>

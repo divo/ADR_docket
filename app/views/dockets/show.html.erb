@@ -1,10 +1,23 @@
+<div class="navbar navbar-expand-lg fixed-top navbar-yellow bg-light justify-content-between">
+  <div class="container">
+    <a class="navbar-brand">Docket: <%= @docket&.id || "" %>&nbsp;</td></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to 'back', dockets_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+      </ul>
+      <a href="#" class="btn my-2 my-sm-0 button btn btn-primary" onclick="window.print();return false;">print</a>
+    </div>
+  </div>
+</div>
 
 <div class="col-xs-6">
-  <p id="notice" class="alert alert-primary d-print-none" role="alert"><%= notice %></p>
-  <div class="navbar navbar-expand-lg navbar-light bg-light container mt-3">
-    <%= link_to 'back', dockets_path, class: "button btn btn-secondary" %>
-    <a href="#" class="button btn btn-primary" onclick="window.print();return false;">print</a>
-  </div>
+  <!-- <p id="notice" class="alert alert-primary d-print-none" role="alert"><%= notice %></p> -->
   <table class="docket" style="border-collapse: collapse;">
     <tbody>
       <tr>
