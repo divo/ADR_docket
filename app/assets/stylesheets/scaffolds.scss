@@ -1,3 +1,19 @@
+/* This combined with bootstrap.css is my master theme */
+
+.navbar-yellow {
+  border-style: hidden;
+  border-bottom: 2px solid #fed700;
+}
+
+.padding-hack { /* Oh well */
+  padding-top: 5rem;
+}
+
+.navbar-bottom {
+  border-style: hidden;
+  border-top: 1px solid #363;
+}
+
 body {
   background-color: #fff;
   color: #333;
