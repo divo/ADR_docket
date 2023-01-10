@@ -1,9 +1,8 @@
-<div class="navbar navbar-expand-lg navbar-light bg-light container mt-3">
+<div class="navbar container navbar-expand-lg fixed-top navbar-yellow bg-light">
   <%= link_to 'back', dockets_path, class: "button btn btn-secondary" %>
-  <h1>New Docket</h1>
-
+  <a href="../" class="navbar-brand">New Docket</a>
 </div>
 
-<div class="container">
+<div class="container padding-hack">
   <%= render 'form', docket: @docket, addresses: @addresses %>
 </div>
