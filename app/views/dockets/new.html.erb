@@ -1,6 +1,14 @@
-<div class="navbar container navbar-expand-lg fixed-top navbar-yellow bg-light">
-  <%= link_to 'back', dockets_path, class: "button btn btn-secondary" %>
-  <a href="../" class="navbar-brand">New Docket</a>
+<div class="navbar navbar-expand-lg fixed-top navbar-yellow bg-light">
+  <div class="container">
+    <a class="navbar-brand">New Docket</a>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to 'back', dockets_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <div class="container padding-hack">
