@@ -1,0 +1,6 @@
+name: adr_docket
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: ADR Docket website
