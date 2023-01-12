@@ -1,10 +1,13 @@
-FROM ruby:2.6.6
+# syntax=docker/dockerfile:1
+# Run locally with `docker run -p 3000:3000 <name>`, publishing the port out to the host is important
+FROM ruby:2.7.6
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client build-essential
 WORKDIR /app
 COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 RUN gem install bundler
 RUN bundle install
+
 COPY . /app
 
 EXPOSE 3000
