@@ -2,6 +2,11 @@
 # https://github.com/pulumi/examples/tree/master/aws-py-ec2-provisioners
 # https://www.pulumi.com/registry/packages/aws/how-to-guides/ec2-webserver/
 
+# Generate and set the key via:
+# ssh-keygen -f rsa
+# pulumi config set publicKeyPath rsa.pub
+# pulumi config set privateKeyPath wordpress-keypair
+
 # Connect via SSH:
 # ssh -i "rsa" ec2-user@ec2-34-245-163-159.eu-west-1.compute.amazonaws.com
 
@@ -9,24 +14,22 @@ import pulumi
 import pulumi_aws as aws
 import pulumi_command as command
 import base64
+from pathlib import Path
 
 config = pulumi.Config()
 
 # If keyName is provided, an existing KeyPair is used, else if publicKey is provided a new KeyPair
 # derived from the publicKey is created.
-key_name = config.get('keyName')
-public_key = config.get('publicKey')
+# key_name = config.get('keyName')
+# public_key = config.get('publicKey')
 
-def decode_key(key):
-    try:
-        key = base64.b64decode(key.encode('ascii')).decode('ascii')
-    except:
-        pass
-    if key.startswith('-----BEGIN RSA PRIVATE KEY-----'):
-        return key
-    return key.encode('ascii')
+publicKeyPath = config.get('publicKeyPath')
+privateKeyPath = config.get('privateKeyPath')
 
-private_key = config.require_secret('privateKey').apply(decode_key)
+publicKey = Path(publicKeyPath).read_text()
+privateKey = pulumi.Output.secret(Path(privateKeyPath).read_text())
+
+keyPair = aws.ec2.KeyPair('key', public_key=publicKey)
 
 size = 't2.micro'
 ami = aws.ec2.get_ami(most_recent="true",
@@ -42,27 +45,16 @@ secgrp = aws.ec2.SecurityGroup('secgrp',
             ],
         )
 
-if key_name is None:
-    key = aws.ec2.KeyPair('key', public_key=public_key)
-    key_name = key.key_name
-
 server = aws.ec2.Instance('adr-webserver-www',
         instance_type=size,
-        key_name=key_name,
+        key_name=keyPair.id,
         vpc_security_group_ids=[secgrp.id], # reference security group from above
         ami=ami.id)
 
 connection = command.remote.ConnectionArgs(
     host=server.public_ip,
     user='ec2-user',
-    private_key=private_key,
-)
-
-cp_config = command.remote.CopyFile('config',
-    connection=connection,
-    local_path='myapp.conf',
-    remote_path='myapp.conf',
-    opts=pulumi.ResourceOptions(depends_on=[server]),
+    private_key=privateKey,
 )
 
 pulumi.export('publicIp', server.public_ip)
