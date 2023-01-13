@@ -5,7 +5,7 @@
 # Generate and set the key via:
 # ssh-keygen -f rsa
 # pulumi config set publicKeyPath rsa.pub
-# pulumi config set privateKeyPath wordpress-keypair
+# pulumi config set privateKeyPath rsa
 
 # Connect via SSH:
 # ssh -i "rsa" ec2-user@ec2-34-245-163-159.eu-west-1.compute.amazonaws.com
@@ -34,7 +34,7 @@ keyPair = aws.ec2.KeyPair('key', public_key=publicKey)
 size = 't2.micro'
 ami = aws.ec2.get_ami(most_recent="true",
         owners=["137112412989"],
-        filters=[{"name":"name","values":["amzn-ami-hvm-*"]}])
+        filters=[{"name":"name","values":["amzn2-ami-hvm-*"]}])
 
 # Create a new security group that permits SSH and web access.
 secgrp = aws.ec2.SecurityGroup('secgrp',
