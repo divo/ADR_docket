@@ -1,0 +1,9 @@
+---
+- name: Install and managing rails application on EC2
+  hosts: all
+  become: True # Execute as root
+  tasks:
+    - name: Update the OS
+      command: yum update
+    - name: Install deps
+      command: sudo yum install -y amazon-linux-extras git nodejs
