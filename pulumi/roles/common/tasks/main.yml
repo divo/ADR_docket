@@ -1,0 +1,21 @@
+---
+- name: Install prerequisites
+  command: yum update
+
+- name: Install dev tools
+  command: yum group install "Development Tools" -y
+
+- name: Install required system packages
+  yum: name={{ item }} state=latest update_cache=yes
+  loop:
+    - curl
+    - amazon-linux-extras
+      # - ufw
+      # - fail2ban
+    - git
+      # - ca-certificates
+      # - software-properties-common
+      # - python3-pip
+      # - virtualenv
+      # - python3-setuptools
+    - "{{ required_packages }}"

@@ -1,0 +1,9 @@
+---
+- name: Get Node
+  command: curl --silent --location https://rpm.nodesource.com/setup_16.x | bash
+  ignore_errors: true # Above script incorrectly returns non 0
+- name: Install Node
+  yum:
+    state: present
+    name:
+      - nodejs
