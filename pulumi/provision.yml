@@ -15,7 +15,7 @@
     - role: nodejs
       tags: nodejs
     - role: yarn
-      tags: nodejs
+      tags: yarn
         #     - role: postgresql
         #       tags: postgresql
         #- role: redis
