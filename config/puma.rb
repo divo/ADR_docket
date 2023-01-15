@@ -13,7 +13,9 @@ port        ENV.fetch("PORT") { 3000 }
 
 # Specifies the `environment` that Puma will run in.
 #
-environment ENV.fetch("RAILS_ENV") { "development" }
+require 'byebug'; byebug;
+rails_env = ENV.fetch("RAILS_ENV") { "development" }
+environment rails_env
 
 if %w[production staging].member?(rails_env)
     app_dir = ENV.fetch("APP_DIR") { "adr_docket/current" }
