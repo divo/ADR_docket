@@ -26,13 +26,13 @@ puma_socket:        "{{ app_sockets_path }}/puma.sock"
 puma_web_concurrency: 2
 
 # Sidekiq
-# sidekiq_service_file:  "sidekiq.service.j2"
+sidekiq_service_file:  "sidekiq.service.j2"
 
 # Ansistrano
 ansistrano_deploy_via: git
 ansistrano_git_repo: "{{ app_git_repo }}"
 ansistrano_git_branch: "{{ app_git_branch }}"
-ansistrano_git_identity_key_path: "~/.ssh/ed_25519"
+ansistrano_git_identity_key_path: "~/.ssh/id_ed25519"
 ansistrano_deploy_from: "{{ playbook_dir }}/../"
 ansistrano_deploy_to: "{{ app_root_path }}"
 ansistrano_keep_releases: 3

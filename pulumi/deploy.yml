@@ -1,5 +1,7 @@
 ---
-- name: Deploy our Rails ap
+- name: Deploy our Rails app
+  vars_files:
+    - app-vars.yml
   hosts: all
   become: true
   become_user: "{{ deploy_user }}"
@@ -40,26 +42,27 @@
         - config/puma
         - assets
         - node_modules
-    
-    - name: Upload shared files
-      template:
-        src: "{{ item.src }}"
-        dest: "{{ app_shared_path }}/{{ item.dest }}"
-        owner: "{{ deploy_user }}" 
-        group: "{{ deploy_group }}"
-      with_items: "{{ shared_files_to_copy }}"
-      tags:
-        - copy
+
+          # Don't know what this is for, but I'm not using the one database template it's copying
+          # - name: Upload shared files
+          #   template:
+          #     src: "{{ item.src }}"
+          #     dest: "{{ app_shared_path }}/{{ item.dest }}"
+          #     owner: "{{ deploy_user }}" 
+          #     group: "{{ deploy_group }}"
+          #   with_items: "{{ shared_files_to_copy }}"
+          #   tags:
+          #     - copy
 
   roles:
     - role: ansistrano.deploy
-    
+
     - role: puma
       tags: puma
       become: true
       become_user: root
-      
-    - role: sidekiq
-      tags: sidekiq
-      become: true
-      become_user: root
+
+        #    - role: sidekiq
+        #      tags: sidekiq
+        #      become: true
+        #      become_user: root

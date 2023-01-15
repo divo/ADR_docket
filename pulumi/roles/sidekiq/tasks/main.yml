@@ -24,4 +24,4 @@
   service:
     name: sidekiq
     state: restarted
-  
+
