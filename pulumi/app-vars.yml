@@ -5,7 +5,7 @@ deploy_group:       "{{ deploy_user }}"
 deploy_user_path:   "/home/{{ deploy_user }}"
 
 # App Git repo
-app_git_repo:       "git@github.com:divo/ADR_docket.git"
+app_git_repo:       "https://github.com/divo/ADR_docket.git"
 app_git_branch:     "main"
 
 # Rails app
