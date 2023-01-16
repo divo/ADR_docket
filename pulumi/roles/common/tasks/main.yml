@@ -1,6 +1,6 @@
 ---
 - name: Install prerequisites
-  command: yum update
+  command: yum update -y
 
 - name: Install dev tools
   command: yum group install "Development Tools" -y
@@ -19,3 +19,16 @@
       # - virtualenv
       # - python3-setuptools
     - "{{ required_packages }}"
+
+- name: Install libuv system package
+  yum: name={{ item }} state=latest update_cache=yes disable_plugin=priorities
+  loop:
+    - libuv
+
+- name: Make Extra packages available
+  command: amazon-linux-extras install -y epel
+
+- name: Install jemalloc
+  yum:
+    state: latest
+    name: jemalloc

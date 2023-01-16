@@ -53,7 +53,8 @@ ansistrano_shared_paths:
 
 # Common
 required_packages:
-  - sqlite-devel.x86_64
+  - sqlite-devel
+  - jemalloc-devel
   # - zlib1g-dev
   # - build-essential
   # - libssl-dev
