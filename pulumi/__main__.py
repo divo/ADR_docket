@@ -73,7 +73,7 @@ play_ansible_playbook_cmd = command.local.Command("playAnsiblePlaybookCmd",
             -u ec2-user \
             -i '{public_ip},' \
             --private-key {privateKeyPath} \
-            rails-playbook.yml"""),
+            nginx-playbook.yml"""),
     triggers=[checksum],
 )
 
