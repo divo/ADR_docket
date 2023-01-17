@@ -3,7 +3,7 @@
 <!-- https://bootswatch.com/simplex/ -->
 <div class="navbar navbar-expand-lg fixed-top navbar-yellow bg-light">
   <div class="container">
-    <a href="../" class="navbar-brand">Docket</a>
+    <a href="../" class="title-text navbar-brand">Docket</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -72,7 +72,7 @@
 </div>
 <% else %>
   <div class="container padding-hack text-center">
-    <h3>Please login or create an account</h3>
+    <h3 class="title-text">Please login or create an account</h3>
     <%= button_to 'Login', login_path, class: "btn my-2  button btn btn-primary" %>
   </div>
 <% end %>

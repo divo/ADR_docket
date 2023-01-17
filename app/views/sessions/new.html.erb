@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-lg fixed-top navbar-yellow bg-light justify-content-between">
   <div class="container">
-    <a class="navbar-brand">Register</td></a>
+    <a class="navbar-brand">Login</td></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,16 +25,19 @@
   <% end %>
 
   <%= form_tag do %>
-    <h2 class: "navbar-brand">Please Log In</h2>
+    <h3 class="title-text">Please Log In</h3>
+
     <div class="form-group">
       <%= label_tag :email, 'Email:', class: "form-label mt-4" %>
       <%= text_field_tag :email, params[:email], class: "form-control pr-4", placeholder: "Enter email" %>
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
+
     <div class="form-group">
       <%= label_tag :password, 'Password:', class: "form-label mt-4" %>
       <%= password_field_tag :password, params[:password], class: "form-control", placeholder: "Password" %>
     </div>
+
     <div class="actions">
       <%= submit_tag "Login", class: "btn btn-primary" %>
     </div>

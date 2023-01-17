@@ -1,57 +1,59 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="col-6 padding-hack container">
+  <%= form_with(model: user, local: true) do |form| %>
+    <% if user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+          <% user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name, class: "form-label mt-4" %>
+      <%= form.text_field :name, class: "form-control pr-4" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password, class: "form-label mt-4" %>
+      <%= form.password_field :password, class: "form-control pr-4" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password_confirmation, class: "form-label mt-4" %>
+      <%= form.password_field :password_confirmation, class: "form-control pr-4" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :company_name, class: "form-label mt-4" %>
+      <%= form.text_field :company_name, class: "form-control pr-4" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :tagline, class: "form-label mt-4" %>
+      <%= form.text_field :tagline, placeholder: 'Logistics specialists', class: "form-control pr-4"  %>
+    </div>
+
+    <div class="field">
+      <%= form.label :address, class: "form-label mt-4" %>
+      <%= form.text_area :address, class: "form-control pr-4" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :phone, class: "form-label mt-4" %>
+      <%= form.text_field :phone, class: "form-control pr-4" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email, class: "form-label mt-4" %>
+      <%= form.text_field :email, class: "form-control pr-4" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Create Account", class: "btn btn-primary mx-0" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
-  </div>
-
-  <div class="field">
-    <%= form.label :company_name %>
-    <%= form.text_field :company_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tagline %>
-    <%= form.text_field :tagline, value: 'Logistics specialists'  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

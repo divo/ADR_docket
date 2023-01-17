@@ -13,6 +13,11 @@ p, ol, ul, td {
   line-height: 18px;
 }
 
+.title-text {
+  font-family: HelveticaNeueeTextPro-Md, arial, sans-serif;
+  color: #336633;
+}
+
 pre {
   background-color: #eee;
   padding: 10px;
@@ -21,11 +26,6 @@ pre {
 
 a {
   color: #000;
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
 }
 
 th {
