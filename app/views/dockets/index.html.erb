@@ -12,15 +12,22 @@
         <li class="nav-item">
           <a class="nav-link" href="../help/">Help</a>
         </li>
+        <% if session[:user_id].present? %>
         <li class="nav-item">
-          <a class="nav-link" href="https://blog.bootswatch.com/">Blog</a>
+          <%= link_to 'Logout', logout_path, method: 'delete', class: "nav-link" %>
         </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Login', login_path, class: "nav-link" %>
+        </li>
+      <% end %>
       </ul>
-      <%= link_to 'New Docket', new_docket_path, class: "btn my-2 my-sm-0 button btn btn-primary" %>
+      <%= button_to 'New Docket', new_docket_path, action: 'new', method: 'get', class: "btn my-2 my-sm-0 button btn btn-primary", disabled: session[:user_id].blank? %>
     </div>
   </div>
 </div>
 
+<% if session[:user_id].present? %>
 <div class="container padding-hack">
   <table class="table container">
     <thead>
@@ -63,3 +70,9 @@
     <%= link_to 'New Docket', new_docket_path, class: "button btn btn-primary" %>
   </div>
 </div>
+<% else %>
+  <div class="container padding-hack text-center">
+    <h3>Please login or create an account</h3>
+    <%= button_to 'Login', login_path, class: "btn my-2  button btn btn-primary" %>
+  </div>
+<% end %>
