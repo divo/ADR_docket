@@ -26,14 +26,20 @@
               <tr><td><br/><br/></td></tr>
               <tr>
                 <td>
-                  <h1>Trim Transport Ltd</h1>
+                  <h1><%= @user.company_name %></h1>
                 </td>
               </tr>
               <tr>
-                <td><h5><%= "Container handling specialists ▆ Haulage & Warehousing".upcase %></h5></td>
+                <td><h5><%= @user.tagline.upcase %></h5></td>
               </tr>
               <tr>
-                <td>Tolka Quay<br />Dublin 1<br />Ireland<br />Tel: (353 1) 8741661<br />Fax: (353 1) 8741664<br />Email: trimtransportltd@gmail.com</td>
+                <td>
+                  <% @user.address.lines.each do |line| %>
+                    <%= line %><br />
+                  <% end %>
+                  Tel: <%= @user.phone %><br />
+                  Email: <%= @user.email %>
+                </td>
               </tr>
               <tr><td><br/></td></tr>
             </tbody>
