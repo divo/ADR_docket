@@ -8,8 +8,8 @@ class DocketsController < ApplicationController
     # If we have a valid user, return their dockets
     # else return an empty array
     @dockets = []
-    if (user = User.find_by(id: session[:user_id]))
-      @dockets = user.dockets
+    if (@user = User.find_by(id: session[:user_id]))
+      @dockets = @user.dockets
     end
   end
 
