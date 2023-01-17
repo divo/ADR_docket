@@ -10,20 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_042132) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "accounts", force: :cascade do |t|
-    t.string "name"
-    t.text "tagline"
-    t.string "phone"
-    t.string "fax"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2020_12_30_002459) do
 
   create_table "addresses", force: :cascade do |t|
     t.text "address"
@@ -40,16 +27,14 @@ ActiveRecord::Schema.define(version: 2021_01_21_042132) do
     t.string "seal_no"
     t.text "description"
     t.text "return_empty"
-    t.bigint "deliver_to_id"
-    t.bigint "collect_from_id"
-    t.bigint "hazardous_good_id"
+    t.integer "deliver_to_id"
+    t.integer "collect_from_id"
+    t.integer "hazardous_good_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "berth"
     t.string "size"
     t.string "weight"
-    t.bigint "account_id"
-    t.index ["account_id"], name: "index_dockets_on_account_id"
     t.index ["collect_from_id"], name: "index_dockets_on_collect_from_id"
     t.index ["deliver_to_id"], name: "index_dockets_on_deliver_to_id"
     t.index ["hazardous_good_id"], name: "index_dockets_on_hazardous_good_id"
@@ -66,15 +51,4 @@ ActiveRecord::Schema.define(version: 2021_01_21_042132) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.bigint "account_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_users_on_account_id"
-  end
-
-  add_foreign_key "dockets", "hazardous_goods"
-  add_foreign_key "users", "accounts"
 end
