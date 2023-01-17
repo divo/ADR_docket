@@ -1,19 +1,44 @@
-<section class="depot_form"> 
-  <% if flash[:alert] %>
-    <aside class="notice"></aside><%= flash[:alert] %></aside>
-  <% end %>
-  <%= form_tag do %> <h2>Please Log In</h2>
-    <div class="field">
-      <%= label_tag :email, 'Email:' %>
-      <%= text_field_tag :email, params[:email] %>
+<div class="navbar navbar-expand-lg fixed-top navbar-yellow bg-light justify-content-between">
+  <div class="container">
+    <a class="navbar-brand">Register</td></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to 'back', dockets_path, class: "nav-link" %>
+        </li>
+      </ul>
     </div>
-    <div class="field">
-      <%= label_tag :password, 'Password:' %>
-      <%= password_field_tag :password, params[:password] %>
+  </div>
+</div>
+
+<div class="col-6 padding-hack container">
+  <section class="depot_form"> 
+
+  <% if flash[:alert] %>
+    <div class="notice alert alert-dismissible alert-warning">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <div class: "mb-0"><%= flash[:alert] %></div></aside>
+    </div>
+  <% end %>
+
+  <%= form_tag do %>
+    <h2 class: "navbar-brand">Please Log In</h2>
+    <div class="form-group">
+      <%= label_tag :email, 'Email:', class: "form-label mt-4" %>
+      <%= text_field_tag :email, params[:email], class: "form-control pr-4", placeholder: "Enter email" %>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <%= label_tag :password, 'Password:', class: "form-label mt-4" %>
+      <%= password_field_tag :password, params[:password], class: "form-control", placeholder: "Password" %>
     </div>
     <div class="actions">
-      <%= submit_tag "Login" %>
+      <%= submit_tag "Login", class: "btn btn-primary" %>
     </div>
   <% end %>
-  <%= link_to "New user? Create an account", new_user_path %>
-</section>
+  <%= link_to "New user? Create an account", new_user_path, class: "text-primary" %>
+  </section>
+</div>
