@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_17_121908) do
+ActiveRecord::Schema.define(version: 2023_01_17_141931) do
 
   create_table "addresses", force: :cascade do |t|
     t.text "address"
@@ -35,9 +35,11 @@ ActiveRecord::Schema.define(version: 2023_01_17_121908) do
     t.string "berth"
     t.string "size"
     t.string "weight"
+    t.integer "user_id"
     t.index ["collect_from_id"], name: "index_dockets_on_collect_from_id"
     t.index ["deliver_to_id"], name: "index_dockets_on_deliver_to_id"
     t.index ["hazardous_good_id"], name: "index_dockets_on_hazardous_good_id"
+    t.index ["user_id"], name: "index_dockets_on_user_id"
   end
 
   create_table "hazardous_goods", force: :cascade do |t|

@@ -1,15 +1,22 @@
 class DocketsController < ApplicationController
   before_action :set_docket, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:show, :edit, :update, :destroy]
 
   # GET /dockets
   # GET /dockets.json
   def index
-    @dockets = Docket.all
+    # If we have a valid user, return their dockets
+    # else return an empty array
+    @dockets = []
+    if (user = User.find_by(id: session[:user_id]))
+      @dockets = user.dockets
+    end
   end
 
   # GET /dockets/1
   # GET /dockets/1.json
   def show
+    @docket_id = @user.dockets.find_index(@docket) + 1
   end
 
   # GET /dockets/new
@@ -29,7 +36,7 @@ class DocketsController < ApplicationController
     build_new_address('collect_from')
     build_hazardous_good
 
-    @docket = Docket.new(docket_params)
+    @docket = Docket.new(docket_params.merge(user_id: session[:user_id]))
 
     respond_to do |format|
       if @docket.save
@@ -84,6 +91,12 @@ class DocketsController < ApplicationController
 
   def set_docket
     @docket = Docket.find(params[:id])
+  end
+
+  def authorize
+    unless (@user = User.find_by(id: session[:user_id]))
+      redirect_to login_url, notice: "Please login"
+    end
   end
 
   # Only allow a list of trusted parameters through.
