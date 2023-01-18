@@ -54,7 +54,8 @@
     </div>
 
     <div class="actions">
-      <%= form.submit "Create Account", class: "btn btn-primary mx-0" %>
+      <%= form.submit "Save", class: "btn btn-primary mx-0" %>
+      <%= link_to 'Delete', @user, class: "button btn btn-danger", method: :delete, data: { confirm: 'Are you sure? All data will be lost' } %>
     </div>
   <% end %>
 </div>

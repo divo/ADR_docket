@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    head 401
   end
 
   # GET /users/1 or /users/1.json
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
+        format.html { redirect_to root_url, notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,9 +52,10 @@ class UsersController < ApplicationController
   def destroy
     @user.dockets.each { |doc| doc.destroy }
     @user.destroy
+    session[:user_id] = nil
 
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
   end
