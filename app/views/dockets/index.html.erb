@@ -13,71 +13,97 @@
           <a class="nav-link" href="../help/">Help</a>
         </li>
         <% if session[:user_id].present? %>
-        <li class="nav-item">
-          <%= link_to 'Account', @user, class: "nav-link" %>
-        </li>
-         <li class="nav-item">
-          <%= link_to 'Logout', logout_path, method: 'delete', class: "nav-link" %>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to 'Login', login_path, class: "nav-link" %>
-        </li>
-      <% end %>
+          <li class="nav-item">
+            <%= link_to 'Account', @user, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Logout', logout_path, method: 'delete', class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Login', login_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
       <%= button_to 'New Docket', new_docket_path, action: 'new', method: 'get', class: "btn my-2 my-sm-0 button btn btn-primary", disabled: session[:user_id].blank? %>
     </div>
-    <small class="navbar-text">Accord Dangereux Routier paperwork</small>
+    <small class="navbar-text navbar-collapse">Accord Dangereux Routier paperwork</small>
   </div>
 </div>
 
 <% if session[:user_id].present? %>
-<div class="container padding-hack">
-  <table class="table container">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Equipment no</th>
-        <th>Customer reference no</th>
-        <th>Seal no</th>
-        <th>Description</th>
-        <th>Return empty</th>
-        <th>Deliver to</th>
-        <th>Collect from</th>
-        <th>Hazardous good</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @dockets.reverse.each do |docket| %>
+  <div class="container padding-hack">
+    <table class="table container">
+      <thead>
         <tr>
-          <td><%= docket.created_at.localtime.strftime("%d-%m-%Y %H:%M")%></td>
-          <td><%= docket.equipment_no %></td>
-          <td><%= docket.customer_reference_no %></td>
-          <td><%= docket.seal_no %></td>
-          <td><%= docket.description %></td>
-          <td><%= docket.return_empty %></td>
-          <td><%= docket.deliver_to ? (render partial: "address", locals: { address: docket.deliver_to }) : "No delivery address" %></td>
-          <td><%= docket.collect_from ? (render partial: "address", locals: { address: docket.collect_from }) : "No collection address" %></td>
-          <td><%= docket.hazardous_good ? docket.hazardous_good : "No hazardous" %></td>
-          <td><%= link_to 'Open', docket, class: "button btn btn-primary"%></td>
-          <td><%= link_to 'Delete', docket, class: "button btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <th>Date</th>
+          <th>Equipment no</th>
+          <th>Customer reference no</th>
+          <th>Seal no</th>
+          <th>Description</th>
+          <th>Return empty</th>
+          <th>Deliver to</th>
+          <th>Collect from</th>
+          <th>Hazardous good</th>
+          <th colspan="3"></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
 
-  <br>
+      <tbody>
+        <% @dockets.reverse.each do |docket| %>
+          <tr>
+            <td><%= docket.created_at.localtime.strftime("%d-%m-%Y %H:%M")%></td>
+            <td><%= docket.equipment_no %></td>
+            <td><%= docket.customer_reference_no %></td>
+            <td><%= docket.seal_no %></td>
+            <td><%= docket.description %></td>
+            <td><%= docket.return_empty %></td>
+            <td><%= docket.deliver_to ? (render partial: "address", locals: { address: docket.deliver_to }) : "No delivery address" %></td>
+            <td><%= docket.collect_from ? (render partial: "address", locals: { address: docket.collect_from }) : "No collection address" %></td>
+            <td><%= docket.hazardous_good ? docket.hazardous_good : "No hazardous" %></td>
+            <td><%= link_to 'Open', docket, class: "button btn btn-primary"%></td>
+            <td><%= link_to 'Delete', docket, class: "button btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-  <div class="navbar navbar-bottom navbar-expand-lg navbar-light bg-light container mt-3">
-    <%= link_to 'New Docket', new_docket_path, class: "button btn btn-primary" %>
+    <br>
+
+    <div class="navbar navbar-bottom navbar-expand-lg navbar-light bg-light container mt-3">
+    </div>
   </div>
-</div>
+
 <% else %>
-  <div class="container padding-hack text-center">
-    <h3 class="title-text">Please login or create an account</h3>
-    <h1 class="title-text">TODO: Add into and sample file</h3>
-    <%= button_to 'Login', login_path, class: "btn my-2  button btn btn-primary" %>
+
+  <div class="container padding-hack">
+    <div class="row justify-content-md-center align-items-center">
+      <div class="col col-md-auto">
+        <div class="card text-white bg-primary" >
+          <div class="card-header">Example docket</div>
+          <div class="card-body">
+            <%= image_tag("AdrDocketExample.png") %>
+          </div>
+        </div>
+      </div>
+       <div class="col col-md-auto">
+        <div class="card border-secondary mb-3" style="max-width: 20rem; height: 100%;">
+          <div class="card-body">
+            <h4 class="body-text">
+              The easiest way to create delivery dockets compliant with <a href="#">Agreement concerning the International Carriage of Dangerous Goods by Road</a> (ADR).
+            <br />
+            <br />
+            Signup below to get started. It's free!
+            </h4>
+          </div>
+        </div>
+      </div>
+     <div class="row my-4">
+       <div class="col text-center">
+          <h3 class="title-text">Please login or create an account</h3>
+          <%= button_to 'Login', login_path, class: "btn my-2  button btn btn-primary" %>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>

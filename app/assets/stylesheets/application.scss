@@ -18,6 +18,10 @@
 /* This combined with bootstrap.css is my master theme */
 /* https://bootswatch.com/simplex/ */
 
+html * {
+  font-family: "HelveticaNeueeTextPro-Roman", arial, sans-serif;
+}
+
 .navbar-yellow {
   border-style: hidden;
   border-bottom: 2px solid #fed700;
@@ -30,6 +34,16 @@
 .navbar-bottom {
   border-style: hidden;
   border-top: 1px solid #363;
+}
+
+.body-text {
+  margin-top: 8px;
+  background-color: rgba(255, 255, 255, 0);
+  font-weight: 300;
+  color: #333;
+  text-align: left;
+  font-size: 18px;
+  margin-bottom: 16px;
 }
 
 body {
@@ -58,10 +72,7 @@ textarea.address {
 }
 
 a {
-  color: #000;
-
   &:hover {
-    color: #fff;
     text-decoration: underline;
   }
 }
