@@ -1,6 +1,26 @@
-<h1>Editing User</h1>
+<div class="navbar navbar-expand-lg fixed-top navbar-yellow bg-light justify-content-between">
+  <div class="container">
+    <a class="navbar-brand"><%= @user.name %></td></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="../help/">Help</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Back', dockets_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Logout', logout_path, method: 'delete', class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>

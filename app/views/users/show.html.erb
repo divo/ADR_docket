@@ -1,34 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class="navbar navbar-expand-lg fixed-top navbar-yellow bg-light justify-content-between">
+  <div class="container">
+    <a class="navbar-brand">Login</td></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="../help/">Help</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Back', dockets_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Logout', logout_path, method: 'delete', class: "nav-link" %>
+        </li>
+      </ul>
+      <%= button_to 'Edit', edit_user_path(@user), action: 'update', method: 'get', class: "btn my-2 my-sm-0 button btn btn-primary" %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
 
-<p>
-  <strong>Company name:</strong>
-  <%= @user.company_name %>
-</p>
+<div class="col-6 container">
+  <section class="depot_form"> 
+    <p class="col-md-6 control-label">
+    <strong>Name:</strong>
+    <%= @user.name %>
+    </p>
 
-<p>
-  <strong>Tagline:</strong>
-  <%= @user.tagline %>
-</p>
+    <p>
+    <strong>Company name:</strong>
+    <%= @user.company_name %>
+    </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @user.address %>
-</p>
+    <p>
+    <strong>Tagline:</strong>
+    <%= @user.tagline %>
+    </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
+    <p>
+    <strong>Address:</strong>
+    <%= @user.address %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+    <p>
+    <strong>Phone:</strong>
+    <%= @user.phone %>
+    </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+    </p>
+
+  </section>
+</div>
