@@ -12,11 +12,12 @@
         <li class="nav-item">
           <a class="nav-link" href="../help/">Help</a>
         </li>
+        <li class="nav-item">
+          <% account_dissabled = "disabled" if session[:user_id].blank? %>
+          <%= link_to 'Account', @user, class: "nav-link #{account_dissabled}" %>
+        </li>
         <% if session[:user_id].present? %>
-          <li class="nav-item">
-            <%= link_to 'Account', @user, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
+         <li class="nav-item">
             <%= link_to 'Logout', logout_path, method: 'delete', class: "nav-link" %>
           </li>
         <% else %>
@@ -27,7 +28,6 @@
       </ul>
       <%= button_to 'New Docket', new_docket_path, action: 'new', method: 'get', class: "btn my-2 my-sm-0 button btn btn-primary", disabled: session[:user_id].blank? %>
     </div>
-    <small class="navbar-text navbar-collapse">Accord Dangereux Routier paperwork</small>
   </div>
 </div>
 
