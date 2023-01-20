@@ -1,5 +1,4 @@
 class HelpMailer < ApplicationMailer
-  default from: 'no-reply@example.com'# Use user email if available, although do so from the view
 
   def help_email
     @message = params[:message]

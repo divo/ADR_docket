@@ -24,6 +24,18 @@
 
   <section class="depot_form"> 
     <%= form_tag do %>
+      <% if @errors&.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@errors.count, "error") %> Some more information is needed</h2>
+          <ul>
+            <% @errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
       <h3 class="title-text">Submit query</h3>
 
       <div class="form-group">
@@ -33,7 +45,7 @@
 
       <div class="form-group">
         <%= label_tag :email, 'Email:', class: "form-label mt-4" %>
-        <%= text_field_tag :email, params[:email], class: "form-control pr-4", value: "#{@user.email}", placeholder: "Enter email" %>
+        <%= text_field_tag :email, params[:email], class: "form-control pr-4", value: "#{@user&.email}", placeholder: "Enter email" %>
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
 
