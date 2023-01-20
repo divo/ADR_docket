@@ -73,7 +73,7 @@
         <div class="form-group my-0">
           <%= form.label :deliver_to_id, class: "control-label " %>
           <div class="from-control">
-            <%= form.select :deliver_to_id, [['New Address', -1]] + Address.all.collect { |a| [a.address, a.id] }, {},
+            <%= form.select :deliver_to_id, Address.all.collect { |a| [a.address, a.id] }, {},
               { class: 'selectpicker', id: 'deliver_picker', title: "New Address", 'data-live-search': true } %>
           </div>
         </div>
@@ -89,7 +89,7 @@
         <div class="form-group my-0">
           <%= form.label :collect_from_id, class: "control-label " %>
           <div class="from-control">
-            <%= form.select :collect_from_id, [['New Address', -1]] + Address.all.collect { |a| [a.address, a.id] }, {},
+            <%= form.select :collect_from_id, Address.all.collect { |a| [a.address, a.id] }, {},
               { class: 'selectpicker', id: 'collect_picker', title: "New Address", 'data-live-search': true } %>
           </div>
         </div>
@@ -107,7 +107,7 @@
             <%= form.label :hazardous_good_id, class: "control-label" %>
         <div class="from-control">
           <%= form.select :hazardous_good_id, HazardousGood.all.collect { |haz| [haz, haz.id] }, {},
-            { class: 'selectpicker', title: "New Hazardous Good", 'data-live-search': true } %>
+            { class: 'selectpicker', id: 'haz_picker', title: "New Hazardous Good", 'data-live-search': true } %>
         </div>
           </div>
           <%= render partial: 'hazardous_goods/form', locals: { hazardous_good: @hazardous_good, embedded: true} %>
