@@ -1,43 +1,51 @@
-<div class="navbar navbar-expand-lg fixed-top navbar-yellow bg-light justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-yellow bg-light">
   <div class="container">
-    <a class="navbar-brand">Login</td></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav">
+    <a class="navbar-brand d-flex w-50 me-auto">Login</td></a>
+    <div class="d-flex flex-grow-1">
+      <span class="w-100 d-lg-none d-block">
+        <!-- hidden spacer to center brand on mobile --></span>
+      <div class="w-200 text-right">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+      <ul class="navbar-nav ms-auto flex-nowrap">
         <li class="nav-item">
           <a class="nav-link" href="../help/">Help</a>
         </li>
-         <li class="nav-item">
+        <li class="nav-item">
           <%= link_to 'Back', dockets_path, class: "nav-link" %>
         </li>
-      </ul>
     </div>
   </div>
-</div>
+</nav>
 
-<div class="col-6 container">
+
+<div class="col-6 container content-padding">
+  <%= render 'shared/notice' %>
+
   <section class="depot_form"> 
 
-  <%= form_tag do %>
-    <h3 class="title-text">Please Log In</h3>
+    <%= form_tag do %>
+      <h3 class="title-text">Please Log In</h3>
 
-    <div class="form-group">
-      <%= label_tag :email, 'Email:', class: "form-label mt-4" %>
-      <%= text_field_tag :email, params[:email], class: "form-control pr-4", placeholder: "Enter email" %>
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
+      <div class="form-group">
+        <%= label_tag :email, 'Email:', class: "form-label mt-4" %>
+        <%= text_field_tag :email, params[:email], class: "form-control pr-4", placeholder: "Enter email" %>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
 
-    <div class="form-group">
-      <%= label_tag :password, 'Password:', class: "form-label mt-4" %>
-      <%= password_field_tag :password, params[:password], class: "form-control", placeholder: "Password" %>
-    </div>
+      <div class="form-group">
+        <%= label_tag :password, 'Password:', class: "form-label mt-4" %>
+        <%= password_field_tag :password, params[:password], class: "form-control", placeholder: "Password" %>
+      </div>
 
-    <div class="actions">
-      <%= submit_tag "Login", class: "btn btn-primary" %>
-    </div>
-  <% end %>
-  <%= link_to "New user? Create an account", new_user_path, class: "text-primary" %>
+      <div class="actions">
+        <%= submit_tag "Login", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+    <%= link_to "New user? Create an account", new_user_path, class: "text-primary" %>
   </section>
 </div>

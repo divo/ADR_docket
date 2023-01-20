@@ -1,11 +1,17 @@
-<div class="navbar navbar-expand-lg fixed-top navbar-yellow bg-light justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-yellow bg-light">
   <div class="container">
-    <a class="navbar-brand">Docket: <%= @docket_id || "" %>&nbsp;</td></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav">
+    <a class="navbar-brand d-flex w-50 me-auto">Docket: <%= @docket_id || "" %>&nbsp;</td></a>
+    <div class="d-flex flex-grow-1">
+      <span class="w-100 d-lg-none d-block">
+        <!-- hidden spacer to center brand on mobile --></span>
+      <div class="w-200 text-right">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+      <ul class="navbar-nav ms-auto flex-nowrap">
         <li class="nav-item">
           <a class="nav-link" href="../help/">Help</a>
         </li>
@@ -16,9 +22,11 @@
       <a href="#" class="btn my-2 my-sm-0 button btn btn-primary"  onclick="printDiv('printableArea')">Print</a>
     </div>
   </div>
-</div>
+</nav>
 
-<div class="col-xs-6">
+<div class="col-xs-6 content-padding">
+  <%= render 'shared/notice' %>
+
   <table class="docket" id="printableArea" style="border-collapse: collapse;">
     <tbody>
       <tr>
