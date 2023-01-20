@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-yellow bg-light">
+  <div class="container">
+    <a class="navbar-brand d-flex w-50 me-auto">Help</td></a>
+    <div class="d-flex flex-grow-1">
+      <span class="w-100 d-lg-none d-block">
+        <!-- hidden spacer to center brand on mobile --></span>
+      <div class="w-200 text-right">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+      <ul class="navbar-nav ms-auto flex-nowrap">
+        <li class="nav-item">
+          <%= link_to 'Back', dockets_path, class: "nav-link" %>
+        </li>
+    </div>
+  </div>
+</nav>
+
+<div class="col-6 container content-padding">
+  <%= render 'shared/notice' %>
+
+  <section class="depot_form"> 
+    <%= form_tag do %>
+      <h3 class="title-text">Submit query</h3>
+
+      <div class="form-group">
+        <%= label_tag :name, 'Name:', class: "form-label mt-4" %>
+        <%= text_field_tag :name, params[:name], class: "form-control pr-4", value: "#{@user&.name}", placeholder: "Enter name" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :email, 'Email:', class: "form-label mt-4" %>
+        <%= text_field_tag :email, params[:email], class: "form-control pr-4", value: "#{@user.email}", placeholder: "Enter email" %>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :message, 'Message:', class: "form-label mt-4" %>
+        <%= text_area_tag :message, params[:message], class: "form-control pr-4" %>
+      </div>
+
+      <div class="actions">
+        <%= submit_tag "Submit Request", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </section>
+</div>
