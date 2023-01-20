@@ -1,12 +1,17 @@
-<!-- https://bootswatch.com/simplex/ -->
-<div class="navbar navbar-expand-lg fixed-top navbar-yellow bg-light">
+<nav class="navbar navbar-expand-lg navbar-yellow bg-light">
   <div class="container">
-    <a href="../" class="title-text navbar-brand">Easy ADR</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav">
+      <a href="#" class="navbar-brand d-flex w-50 me-auto">Easy ADR</a>
+    <div class="d-flex flex-grow-1">
+      <span class="w-100 d-lg-none d-block">
+        <!-- hidden spacer to center brand on mobile --></span>
+      <div class="w-200 text-right">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+      <ul class="navbar-nav ms-auto flex-nowrap">
         <li class="nav-item">
           <a class="nav-link" href="../help/">Help</a>
         </li>
@@ -14,9 +19,9 @@
           <li class="nav-item">
             <%= link_to 'Account', edit_user_path(@user), class: "nav-link" %>
           </li>
-         <li class="nav-item">
+          <li class="nav-item">
             <%= link_to 'Logout', logout_path, method: 'delete', class: "nav-link" %>
-         </li>
+          </li>
         <% else %>
           <li class="nav-item">
             <%= link_to 'Account', '', class: "nav-link disabled" %>
@@ -29,10 +34,10 @@
       <%= button_to 'New Docket', new_docket_path, action: 'new', method: 'get', class: "btn my-2 my-sm-0 button btn btn-primary", disabled: session[:user_id].blank? %>
     </div>
   </div>
-</div>
+</nav>
 
 <% if session[:user_id].present? %>
-  <div class="container">
+  <div class="container content-padding">
     <table class="table container">
       <thead>
         <tr>
@@ -80,7 +85,7 @@
 
 <% else %>
 
-  <div class="container">
+  <div class="container content-padding">
     <div class="row justify-content-md-center align-items-center">
       <div class="col col-md-auto">
         <div class="card text-white bg-primary" >
@@ -90,20 +95,20 @@
           </div>
         </div>
       </div>
-       <div class="col col-md-auto">
+      <div class="col col-md-auto">
         <div class="card border-secondary mb-3" style="max-width: 20rem; height: 100%;">
           <div class="card-body">
             <h4 class="body-text">
               The easiest way to create delivery dockets compliant with <a href="#">Agreement concerning the International Carriage of Dangerous Goods by Road</a> (ADR).
-            <br />
-            <br />
-            Signup below to get started. It's free!
+              <br />
+              <br />
+              Signup below to get started. It's free!
             </h4>
           </div>
         </div>
       </div>
-     <div class="row my-4">
-       <div class="col text-center">
+      <div class="row my-4">
+        <div class="col text-center">
           <h3 class="title-text">Please login or create an account</h3>
           <%= button_to 'Login', login_path, class: "btn my-2  button btn btn-primary" %>
         </div>
