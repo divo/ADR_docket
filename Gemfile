@@ -38,7 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bootstrap'
 gem 'jquery-rails'
-gem 'bootstrap-select-rails', :git => 'https://github.com/CR4567/bootstrap-select-rails.git'
+# gem 'bootstrap-select-rails', :git => 'https://github.com/CR4567/bootstrap-select-rails.git'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
