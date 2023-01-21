@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
 
-  # GET /users or /users.json
+  # GET /users
   def index
     head 401
   end
 
-  # GET /users/1 or /users/1.json
+  # GET /users/1
   def show
   end
 
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def edit
   end
 
-  # POST /users or /users.json
+  # POST /users
   def create
     @user = User.new(user_params)
 
@@ -27,28 +27,24 @@ class UsersController < ApplicationController
       if @user.save
         session[:user_id] = @user.id
         format.html { redirect_to dockets_url, notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /users/1 or /users/1.json
+  # PATCH/PUT /users/1
   def update
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to root_url, notice: "User was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /users/1 or /users/1.json
+  # DELETE /users/1
   def destroy
     @user.dockets.each { |doc| doc.destroy }
     @user.destroy
@@ -56,7 +52,6 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to root_path, notice: "User was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

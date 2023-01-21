@@ -3,7 +3,6 @@ class DocketsController < ApplicationController
   before_action :authorize, only: [:show, :edit, :update, :destroy]
 
   # GET /dockets
-  # GET /dockets.json
   def index
     # If we have a valid user, return their dockets
     # else return an empty array
@@ -14,7 +13,6 @@ class DocketsController < ApplicationController
   end
 
   # GET /dockets/1
-  # GET /dockets/1.json
   def show
     @docket_id = @user.dockets.find_index(@docket) + 1
   end
@@ -30,7 +28,6 @@ class DocketsController < ApplicationController
   end
 
   # POST /dockets
-  # POST /dockets.json
   def create
     build_new_address('deliver_to')
     build_new_address('collect_from')
@@ -41,10 +38,8 @@ class DocketsController < ApplicationController
     respond_to do |format|
       if @docket.save
         format.html { redirect_to @docket, notice: 'Docket was successfully created.' }
-        format.json { render :show, status: :created, location: @docket }
       else
         format.html { render :new }
-        format.json { render json: @docket.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,10 +64,8 @@ class DocketsController < ApplicationController
     respond_to do |format|
       if @docket.update(docket_params)
         format.html { redirect_to @docket, notice: 'Docket was successfully updated.' }
-        format.json { render :show, status: :ok, location: @docket }
       else
         format.html { render :edit }
-        format.json { render json: @docket.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -83,7 +76,6 @@ class DocketsController < ApplicationController
     @docket.destroy
     respond_to do |format|
       format.html { redirect_to dockets_url, notice: 'Docket was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
