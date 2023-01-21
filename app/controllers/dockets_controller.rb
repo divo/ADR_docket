@@ -1,6 +1,6 @@
 class DocketsController < ApplicationController
   before_action :set_docket, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorize, only: [:index]
 
   # GET /dockets
   def index
@@ -83,12 +83,6 @@ class DocketsController < ApplicationController
 
   def set_docket
     @docket = Docket.find(params[:id])
-  end
-
-  def authorize
-    unless (@user = User.find_by(id: session[:user_id]))
-      redirect_to login_url, notice: "Please login"
-    end
   end
 
   # Only allow a list of trusted parameters through.

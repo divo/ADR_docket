@@ -1,5 +1,6 @@
 class HelpController < ApplicationController
   extend ActiveModel::Naming
+  skip_before_action :authorize
 
   def new
     @user = User.find_by(id: session[:user_id]) if session[:user_id].present?
