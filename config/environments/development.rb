@@ -59,6 +59,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  # Mailer config
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
@@ -69,5 +70,6 @@ Rails.application.configure do
     authentication:       'plain',
     enable_starttls_auto: true,
     open_timeout:         5,
-    read_timeout:         5 }
+    read_timeout:         5
+  }
 end
