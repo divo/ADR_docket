@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to dockets_url, notice: "User was successfully created." }
+        format.html { redirect_to dockets_url, notice: "#{@user.email} was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
