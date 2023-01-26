@@ -18,6 +18,7 @@
       # - python3-pip
       # - virtualenv
       # - python3-setuptools
+      # - mosh # Mosh package is broken, compile from source following: https://gist.github.com/ctd/9fbd0ed5b7d9be1aa532d11a0701bae1
     - "{{ required_packages }}"
 
 - name: Install libuv system package
