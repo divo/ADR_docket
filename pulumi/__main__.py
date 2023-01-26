@@ -68,15 +68,15 @@ connection = command.remote.ConnectionArgs(
 checksum = checksumdir.dirhash('../app', 'md5')
 
 # Play the Ansible playbook
-play_ansible_playbook_cmd = command.local.Command("playAnsiblePlaybookCmd",
-    create=server.public_ip.apply(lambda public_ip: f"""\
-            ANSIBLE_HOST_KEY_CHECKING=False ANSIBLE_PYTHON_INTERPRETER=auto_silent ansible-playbook \
-            -u ec2-user \
-            -i '{public_ip},' \
-            --private-key {privateKeyPath} \
-            nginx-playbook.yml"""),
-    triggers=[checksum],
-)
+# play_ansible_playbook_cmd = command.local.Command("playAnsiblePlaybookCmd",
+#     create=server.public_ip.apply(lambda public_ip: f"""\
+#             ANSIBLE_HOST_KEY_CHECKING=False ANSIBLE_PYTHON_INTERPRETER=auto_silent ansible-playbook \
+#             -u ec2-user \
+#             -i '{public_ip},' \
+#             --private-key {privateKeyPath} \
+#             nginx-playbook.yml"""),
+#     triggers=[checksum],
+# )
 
 pulumi.export('publicIp', server.public_ip)
 pulumi.export('publicHostName', server.public_dns)
