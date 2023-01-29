@@ -13,6 +13,7 @@ class HelpController < ApplicationController
     respond_to do |format|
       if validate! # I give up on trying to pretend this is an ActiveModel object
         HelpMailer.with(help_params).help_email.deliver_later
+        send_analytics("ticket_submitted", @user)
         format.html { redirect_to root_path, notice: "Request submitted. We will be in touch shortly." }
       else
         # The problem with this is the "model" (mailer) and the form don't match

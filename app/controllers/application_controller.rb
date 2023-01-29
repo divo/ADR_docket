@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   end
 
   def send_analytics(event, user)
-    AnalyticsJob.perform_later(Time.now.to_s, session.id.to_s, user.id, event)
+    AnalyticsJob.perform_later(Time.now.to_s, session.id.to_s, user&.id || "nil", event)
   end
 end

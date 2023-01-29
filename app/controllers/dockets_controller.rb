@@ -9,11 +9,14 @@ class DocketsController < ApplicationController
     @dockets = []
     if (@user = User.find_by(id: session[:user_id]))
       @dockets = @user.dockets
+    else
+      send_analytics("unregistered_user_root", nil)
     end
   end
 
   # GET /dockets/1
   def show
+    send_analytics("view_docket", nil)
     @docket_id = @user.dockets.find_index(@docket) + 1
   end
 
@@ -37,6 +40,7 @@ class DocketsController < ApplicationController
 
     respond_to do |format|
       if @docket.save
+        send_analytics("docket_created", nil)
         format.html { redirect_to @docket, notice: 'Docket was successfully created.' }
       else
         format.html { render :new }
