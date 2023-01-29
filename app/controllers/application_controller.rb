@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
       redirect_to login_url, notice: "Please login"
     end
   end
+
+  def send_analytics(event, user)
+    AnalyticsJob.perform_later(Time.now.to_s, session.id.to_s, user.id, event)
+  end
 end

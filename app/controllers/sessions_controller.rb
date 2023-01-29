@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: session_params[:email])
     if user&.authenticate(session_params[:password])
       session[:user_id] = user.id
+      send_analytics("user_login", user)
       redirect_to root_path
     else
       redirect_to login_url, alert: "Invalid email or password"
