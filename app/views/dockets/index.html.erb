@@ -15,7 +15,7 @@
         <li class="nav-item">
           <a class="nav-link" href="../help/">Help</a>
         </li>
-        <% if session[:user_id].present? %>
+        <% if @user %>
           <li class="nav-item">
             <%= link_to 'Account', edit_user_path(@user), class: "nav-link" %>
           </li>
