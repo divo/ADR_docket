@@ -16,7 +16,7 @@ class DocketsController < ApplicationController
 
   # GET /dockets/1
   def show
-    send_analytics("view_docket", nil)
+    send_analytics("view_docket", @user)
     @docket_id = @user.dockets.find_index(@docket) + 1
   end
 
@@ -40,7 +40,7 @@ class DocketsController < ApplicationController
 
     respond_to do |format|
       if @docket.save
-        send_analytics("docket_created", nil)
+        send_analytics("docket_created", @user)
         format.html { redirect_to @docket, notice: 'Docket was successfully created.' }
       else
         format.html { render :new }
