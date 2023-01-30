@@ -8,6 +8,7 @@ class DocketsController < ApplicationController
     # else return an empty array
     @dockets = []
     if (@user = User.find_by(id: session[:user_id]))
+      send_analytics("registered_user_root", nil)
       @dockets = @user.dockets
     else
       send_analytics("unregistered_user_root", nil)
