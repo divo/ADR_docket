@@ -52,7 +52,7 @@ class DocketsController < ApplicationController
   def build_new_address(key)
     return if address_params["new_#{key}_address"].empty? || docket_params["#{key}_id"].present?
 
-    address = Address.create(address: address_params["new_#{key}_address"])
+    address = Address.create(user: @user, address: address_params["new_#{key}_address"])
     params[:docket]["#{key}_id"] = address.id
   end
 

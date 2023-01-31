@@ -73,7 +73,7 @@
         <div class="form-group my-0">
           <%= form.label :deliver_to_id, class: "control-label " %>
           <div class="from-control">
-            <%= form.select :deliver_to_id, Address.all.collect { |a| [a.address, a.id] }, {},
+            <%= form.select :deliver_to_id, @user.addresses.all.collect { |a| [a.address, a.id] }, {},
               { class: 'selectpicker', id: 'deliver_picker', title: "New Address", 'data-live-search': true } %>
           </div>
         </div>
@@ -89,7 +89,7 @@
         <div class="form-group my-0">
           <%= form.label :collect_from_id, class: "control-label " %>
           <div class="from-control">
-            <%= form.select :collect_from_id, Address.all.collect { |a| [a.address, a.id] }, {},
+            <%= form.select :collect_from_id, @user.addresses.all.collect { |a| [a.address, a.id] }, {},
               { class: 'selectpicker', id: 'collect_picker', title: "New Address", 'data-live-search': true } %>
           </div>
         </div>
