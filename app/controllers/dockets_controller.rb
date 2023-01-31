@@ -59,7 +59,7 @@ class DocketsController < ApplicationController
   def build_hazardous_good
     return if hazardous_good_params.values.all?(&:empty?) || docket_params[:hazardous_good_id].present?
 
-    hazardous_good = HazardousGood.create(hazardous_good_params)
+    hazardous_good = HazardousGood.create(hazardous_good_params.merge({user: @user}))
     params[:docket][:hazardous_good_id] = hazardous_good.id
   end
 

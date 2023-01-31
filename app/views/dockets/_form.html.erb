@@ -106,7 +106,7 @@
           <div class="form-group">
             <%= form.label :hazardous_good_id, class: "control-label" %>
         <div class="from-control">
-          <%= form.select :hazardous_good_id, HazardousGood.all.collect { |haz| [haz, haz.id] }, {},
+          <%= form.select :hazardous_good_id, @user.hazardous_goods.all.collect { |haz| [haz, haz.id] }, {},
             { class: 'selectpicker', id: 'haz_picker', title: "New Hazardous Good", 'data-live-search': true } %>
         </div>
           </div>
