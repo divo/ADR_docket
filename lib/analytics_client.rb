@@ -1,6 +1,5 @@
 require 'json'
 
-# Left here. All the plumbing is done but it's not working, need to debug it
 class AnalyticsClient
   include HTTParty
 

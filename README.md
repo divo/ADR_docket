@@ -24,4 +24,5 @@ I then fixed it up a bit into something that could just about be used by others.
 - [] Address / Haz is UX is bad.
 - [] Forgot password form
 - [] Setup a job queue for the metrics
+- .... Tests
 ??
