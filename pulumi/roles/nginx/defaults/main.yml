@@ -1,3 +1,0 @@
----
-nginx_conf_template: "nginx-default.conf.j2"
-nginx_https_enabled: false
